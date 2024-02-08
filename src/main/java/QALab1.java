@@ -1,12 +1,31 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class QALab1 {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введіть значення x:");
-        double x = scanner.nextDouble();
-        System.out.println("Введіть значення delta:");
-        double delta = scanner.nextDouble();
+        double x;
+        double delta;
+        while (true) {
+            System.out.println("Введіть значення x:");
+            try {
+                x = scanner.nextDouble();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Введені дані не є числом.");
+                scanner.next();
+            }
+        }
+        while (true) {
+            System.out.println("Введіть значення delta:");
+            try {
+                delta = scanner.nextDouble();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Введені дані не є числом.");
+                scanner.next();
+            }
+        }
         double result = 0;
         for (int n = 0; true; n++) {
             double term = Math.pow(x,n)/getFactorial(n);
