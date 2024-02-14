@@ -12,37 +12,37 @@ public class QALab1 {
                 x = scanner.nextDouble();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Введені дані не є числом.");
+                System.out.println("Введені дані не є числом або дробове число має крапку.");
                 scanner.next();
             }
         }
         while (true) {
             System.out.println("Введіть значення delta:");
             try {
-                delta = scanner.nextDouble();
+                delta = Math.abs(scanner.nextDouble());
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Введені дані не є числом.");
+                System.out.println("Введені дані не є числом або дробове число має крапку.");
                 scanner.next();
             }
         }
         double result = 0;
-        for (int n = 0; true; n++) {
-            double term = Math.pow(x,n)/getFactorial(n);
+        double term = 0;
+        for (int n = 0; GetExp(x,n)>delta; n++) {
+            term = GetExp(x,n);
             result += term;
-            System.out.println("Наближене значення у1 = "+term+" При N = " + n);
-            if (term<delta) {
-                System.out.println("Результат = "+ result + " з останнім числом = "+ term);
-                break;
-            }
+            System.out.println("Наближене значення у1 = "+term+" При N = " + n + " - " + result);
         }
+        System.out.println("Результат = "+ result + " з останнім числом = "+ term);
     }
 
-    public static int getFactorial(int f) {
-        if (f <= 1) {
-            return 1;
-        } else {
-            return f * getFactorial(f - 1);
+    public static double GetExp(double x, int n)
+    {
+        double result =1;
+        for (int i =1; i<=n;i++)
+        {
+            result*=x/i;
         }
+        return result;
     }
 }
