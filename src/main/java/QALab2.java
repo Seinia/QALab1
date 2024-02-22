@@ -7,7 +7,6 @@ public class QALab2 {
     public static boolean checklines(String[] parts){
         String line = parts[0];
         try {
-            int number = Integer.parseInt(line);
             return true;
         } catch (NumberFormatException e) {
             System.out.printf("Рядок не може бути перетворений в ціле число: %s%n",line);
