@@ -1,6 +1,6 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.*;
 
 public class QALab2 {
 
@@ -15,7 +15,7 @@ public class QALab2 {
         return false;
     }
     public static void main(String[] args) {
-        HashMap<String,String> items = new HashMap<>();
+        LinkedHashMap<String,String> items = new LinkedHashMap<>();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\itemList.txt"), StandardCharsets.UTF_8))) {
             String line;
             while ((line = br.readLine()) != null) {
