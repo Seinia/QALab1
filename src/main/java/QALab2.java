@@ -25,15 +25,20 @@ public class QALab2 {
                         System.out.printf("Товар з кодом - %s вже існує%n",parts[0]);
                     } else if(items.containsValue(String.format("%s; Виробник - %s",parts[1],parts[2]))){
                         System.out.printf("Такий товар - %s від виробника %s вже існує%n",parts[1],parts[2]);
+                    } else {
+                        items.put(parts[0], String.format("%s; Виробник - %s", parts[1], parts[2]));
                     }
-                    items.put(parts[0],String.format("%s; Виробник - %s",parts[1],parts[2]));
+                }
+            }
+            if (items.isEmpty()) {
+                System.out.println("Файл пустий");
+            } else {
+                for (HashMap.Entry<String, String> entry : items.entrySet()) {
+                    System.out.printf("Номер товару - %s; Товар - %s%n", entry.getKey(), entry.getValue());
                 }
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }
-        for (HashMap.Entry<String, String> entry : items.entrySet()) {
-            System.out.printf("Номер товару - %s; Товар - %s%n", entry.getKey(), entry.getValue());
         }
     }
 }
