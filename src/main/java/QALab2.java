@@ -19,7 +19,7 @@ public class QALab2 {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\itemList.txt"), StandardCharsets.UTF_8))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split("\\\t");
+                String[] parts = line.split("\t");
                 if (checklines(parts)){
                     if (items.containsKey(parts[0])){
                         System.out.printf("Товар з кодом - %s вже існує%n",parts[0]);
