@@ -20,7 +20,7 @@ public class QALab2 {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("\t");
-                if (parts.length>3) {
+                if (parts.length!=3) {
                     System.out.println("Вказаний рядок має некоректну кількість частин");
                 }else {
                     if (checklines(parts)) {
